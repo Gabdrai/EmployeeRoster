@@ -57,18 +57,7 @@ class EmployeeTypeTableViewController: UITableViewController {
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "selectEmployeeType" {
-            let destinationViewController = segue.destination as? EmployeeTypeTableViewController
-            
-            destinationViewController?.delegate = self as? EmployeeTypeDelegate
-            destinationViewController?.employeeType = employeeType
-        }
-        
-        
-    }
     
-
     
     
     

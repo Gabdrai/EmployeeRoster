@@ -199,7 +199,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IWM-R2-gGW" kind="show" id="Cwn-lk-1uQ"/>
+                                            <segue destination="IWM-R2-gGW" kind="show" identifier="selectEmployeeType" id="Cwn-lk-1uQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
