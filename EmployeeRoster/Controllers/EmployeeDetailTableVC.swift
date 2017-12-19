@@ -46,15 +46,7 @@ class EmployeeDetailTableVC: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func datePickerValueChanged()
-    {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateStyle = .medium
-        
-        dobLabel.text = dateFormatter.string(from: datePicker.date)
-
-    }
+   
 
 ////    func updateDateViews() {
 //        let dateFormatter = DateFormatter()
@@ -114,7 +106,17 @@ class EmployeeDetailTableVC: UITableViewController, UITextFieldDelegate {
 
         }
     }
-
+    
+    
+    @IBAction func datePickerValueChanged()
+    {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = .medium
+        
+        dobLabel.text = dateFormatter.string(from: datePicker.date)
+        
+    }
    
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         if let name = nameTextField.text {
