@@ -151,6 +151,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="535378059.68498999">
                                                         <!--2017-12-19 12:07:39 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePickerValueChanged" destination="1f4-k3-GeK" eventType="valueChanged" id="XfF-zX-9vC"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -217,6 +220,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="N0i-Oj-22Z" id="ElY-JC-GWV"/>
                         <outlet property="dobLabel" destination="eDi-3x-Sdd" id="hKH-oX-57e"/>
                         <outlet property="employeeTypeLabel" destination="cPh-9e-v2j" id="hj4-eQ-B8k"/>
                         <outlet property="nameTextField" destination="zjD-iz-eCp" id="ZRi-HR-sx5"/>
