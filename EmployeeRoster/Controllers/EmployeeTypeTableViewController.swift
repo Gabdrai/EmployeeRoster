@@ -16,7 +16,17 @@ class EmployeeTypeTableViewController: UITableViewController {
     
     var delegate: EmployeeTypeDelegate?
     
-    let employeeType = EmployeeType?.self
+    var employeeType: EmployeeType?
+    
+    
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+        return EmployeeType.all.count
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -26,8 +36,7 @@ class EmployeeTypeTableViewController: UITableViewController {
         
         cell.textLabel?.text = type.description()
         
-        if employeeType == self.employeeType {
-            
+        if type == employeeType {
             cell.accessoryType = .checkmark
         } else {
             
@@ -40,6 +49,25 @@ class EmployeeTypeTableViewController: UITableViewController {
         
     }
    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        employeeType = EmployeeType.all[indexPath.row]
+        delegate?.didSelectType(employeeType: employeeType!)
+        tableView.reloadData()
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectEmployeeType" {
+            let destinationViewController = segue.destination as? EmployeeTypeTableViewController
+            
+            destinationViewController?.delegate = self as? EmployeeTypeDelegate
+            destinationViewController?.employeeType = employeeType
+        }
+        
+        
+    }
+    
 
     
     
@@ -60,16 +88,6 @@ class EmployeeTypeTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
