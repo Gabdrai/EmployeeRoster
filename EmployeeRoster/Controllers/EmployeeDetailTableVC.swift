@@ -32,15 +32,17 @@ class EmployeeDetailTableVC: UITableViewController, UITextFieldDelegate, Employe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateType()
+        
         updateView()
+        updateType()
 //        updateDateViews()
         
     }
     
     
     func updateView() {
-        if let employee = employee {
+        if let employee = employee
+        {
             navigationItem.title = employee.name
             nameTextField.text = employee.name
             nameTextField.font = nameTextField.font?.withSize(25)
@@ -53,6 +55,8 @@ class EmployeeDetailTableVC: UITableViewController, UITextFieldDelegate, Employe
             employeeTypeLabel.text = employee.employeeType.description()
             employeeTypeLabel.textColor = .black
             employeeTypeLabel.font = employeeTypeLabel.font.withSize(25)
+            
+            employeeType = employee.employeeType
             
         } else {
             
